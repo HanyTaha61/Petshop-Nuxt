@@ -199,7 +199,8 @@ body{
     }
         
         .hamburger{
-            
+            border: 1px solid var(--secondary-color) !important;
+            outline: none;
             
             span{
                 width: 20px !important;

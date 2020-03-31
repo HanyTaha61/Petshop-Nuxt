@@ -13,9 +13,7 @@
                                 <b-row :key="`img-cont_${i+1}`" tag="ul" :class="`img-cont_${i+1}`" class="bg-light mt-2">
 
                                 <!-- menu components -->
-
-                                    <shop-by-brand :is='item.name'  tag="li" lg="2" :class="`menu-item_${i2}`" class="ml-0 my-1 py-2" v-for="(img, i2) in images" :key="i2" :img='img'/>
-                                
+                                    <component :is="`comp${i+1}`" :images="images"/>
                                 <!-- menu components -->
 
                                 </b-row>
@@ -30,7 +28,13 @@
                                         <b-collapse class="collapse_main" :id="`accordion-${i+1}`" accordion="my-accordion" role="tabpanel">
                                             <b-card-body class="card_body_main">
                                                 <nuxt-link to="./host">
-                                                    <b-img thumbnail rounded class="border" v-for="(img,i) in images" :key="i" :src="require(`../../assets/img/brands/${img.src}`)" alt="img"/>
+                                                    <b-img
+                                                    thumbnail
+                                                    rounded
+                                                    class="border"
+                                                    v-for="(img,i) in images" :key="i"
+                                                    :src="require(`../../assets/img/brands/${img.src}`)"
+                                                    alt="img"/>
                                                 </nuxt-link>
                                             </b-card-body>
                                         </b-collapse>
@@ -48,23 +52,16 @@
 
 <script>
 import ClickOutside from 'vue-click-outside'
-import shopByBrand from './components/shopByBrand'
-import shopByPet from './components/shopByPet'
-import petServices from './components/petServices'
-import sale from './components/Sale'
-import help from './components/Help'
-import findAStore from './components/findAStore'
+import comp1 from './components/shopByBrand'
+import comp2 from './components/shopByPet'
+import comp3 from './components/petServices'
+import comp4 from './components/Sale'
+import comp5 from './components/Help'
+import comp6 from './components/findAStore'
 
 export default {
-    components: {shopByBrand, shopByPet, petServices, sale ,help, findAStore},
+    components: {comp1, comp2, comp3, comp4 ,comp5, comp6},
     directives: {ClickOutside},
-    computed:{
-        // menu_components(item) {
-        //     if(this.menu_items[item.title]){
-        //        return this.menu_items[item.name]
-        //     }
-        // },
-    },
     methods:{
         toggle_div(){
             return this.show_div = !this.show_div
@@ -116,12 +113,12 @@ export default {
                 {src: 'Whisker City.jpeg'},
             ],
             menu_items:[
-                {title: 'Shop By Brand', name: 'shopByBrand'},
-                {title: 'Shop By Pet', name: 'shopByPet'},
-                {title: 'Pet Services', name: 'petServices'},
-                {title: 'Sale', name: 'sale'},
-                {title: 'Help', name: 'help'},
-                {title: 'Find A Store', name: 'findAStore'}
+                {title: 'Shop By Brand'},
+                {title: 'Shop By Pet'},
+                {title: 'Pet Services'},
+                {title: 'Sale'},
+                {title: 'Help'},
+                {title: 'Find A Store'}
             ]
       // shopByBrand, shopByPet, petServices, sale ,help
         }
@@ -133,135 +130,4 @@ export default {
 }
 </script>
 
-
-<style scoped lang='scss'>
-
-    .list{
-        list-style: none;
-        margin-top: 0;
-        margin-bottom: 0;
-
-        @for $i from 1 to 7{
-        
-            .button_#{$i}{
-                width: 165px;
-                position: relative;
-
-                @media (max-width: 1199px) {
-                    width: 135px;
-                }
-
-                &:hover .img-cont_#{$i}{
-                    display: flex;
-                    justify-content: flex-start;
-
-                }
-                
-
-                .img-cont_#{$i}{
-                    list-style: none;
-                    position: absolute;
-                    top: 35px;
-                    left: 60px - ($i*140);
-                    width: 1000px;
-                    border-radius: 5px;
-                    display: none;
-
-                        &::after{
-                            content: "";
-                            position: absolute;
-                            top: -8px;
-                            left: 30px + ($i*140);
-                            z-index: 1;
-                            margin-left: -10px;
-                            width: 0;
-                            height: 0;
-                            border-left: 10px solid transparent;
-                            border-right: 10px solid transparent;
-                            border-bottom: 10px solid #fff;
-                            // display: none;
-                            display: block;
-
-                            @media (max-width: 1199px) {
-                                left: 30px + ($i*140);
-                            }   
-                        }
-                    @for $x from 0 to 19{
-                        
-                        .menu-item_#{$x}{
-                            list-style: none;
-                            a{
-                                
-                                img{
-                                    border: 1px solid #000;
-                                    transition: 0.1s;
-                                    
-                                    &:hover{
-                                        border: 2px solid #000;
-                                        box-shadow: 5px 5px 25px #123;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .title{
-                    color: var(--secondary-color);
-                    font-size: 1.1em;
-                    text-decoration: none;
-
-                    @media (max-width:1199px) {
-                        font-size: 1em;
-
-                    }
-                }
-            }
-        }
-        
-        .mini-menu{
-
-            .tablist{
-
-                .card-main{
-
-                    .card_header_main{
-
-                        .btn_main{
-
-
-                        }
-                    }
-
-                    .collapse_main{
-
-                        .card_body_main{
-
-                            a{
-
-                                img{
-                                    transition: 0.2s;
-
-                                    &:hover{
-                                        transform: scale(1.05);
-                                        border: 1px solid #000;
-                                        box-shadow: 5px 5px 20px #111;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    .slide-enter-active, .slide-leave-active {
-    transition: opacity 0.5s;
-    }
-    .slide-enter, .slide-leave-active /* .slide-leave-active below version 2.1.8 */ {
-    opacity: 0;
-    }
-</style>
-    
-
-<style src='./navbar2.scss' lang="scss"/>
+<style src='./navbar2.scss' lang="scss" scoped/>

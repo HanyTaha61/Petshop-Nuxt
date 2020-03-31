@@ -1,147 +1,111 @@
 
 .lower_navbar{
-background-color: var(--secondary-color);
-    .navbar{
+    background-color: var(--secondary-color);
+
+    .list{
+        list-style: none;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        @for $i from 1 to 7{
         
-        .navbar-nav{
+            .button_#{$i}{
+                width: 165px;
+                position: relative;
 
-            .menu{
-                background-color: var(--secondary-color);
-                color: #fff;
-
-
-                @media (max-width: 991px) {
-                    width: 170px;
+                @media (max-width: 1199px) {
+                    width: 135px;
                 }
 
-                .caret_down{
-                    display: inline-block;
-                    width: 0;
-                    height: 0;
-                    margin-left: 2px;
-                    vertical-align: middle;
-                    border-top: 4px dashed;
-                    border-right: 4px solid transparent;
-                    border-left: 4px solid transparent;                        
+                &:hover .img-cont_#{$i}{
+                    display: flex;
+                    // justify-content: flex-start;
+
                 }
-                .caret_up{
-                    display: inline-block;
-                    width: 0;
-                    height: 0;
-                    margin-left: 2px;
-                    vertical-align: middle;
-                    border-bottom: 4px dashed;
-                    border-right: 4px solid transparent;
-                    border-left: 4px solid transparent;                        
-                }
+                
 
-                    
-            }
+                .img-cont_#{$i}{
+                    list-style: none;
+                    position: absolute;
+                    top: 35px;
+                    left: 60px - ($i*140);
+                    width: 950px;
+                    border-radius: 5px;
+                    display: none;
 
-            .login_body{
-                position: absolute;
-                top: 60px;
-                left: 5px;
-                z-index: 1;
-                padding-left: 10px !important;
-                padding-right: 10px !important;
-                width: 275px !important;
-                border-radius: 10px !important;
-                padding-top: 55px !important;
-                background-color: var(--secondary-color);
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        top: -8px;
+                        left: 30px + ($i*140);
+                        z-index: 1;
+                        margin-left: -10px;
+                        width: 0;
+                        height: 0;
+                        border-left: 10px solid transparent;
+                        border-right: 10px solid transparent;
+                        border-bottom: 10px solid #fff;
+                        // display: none;
+                        display: block;
 
-                @media (max-width: 991px) {
-                    top: 60px;
-                    left: 0;
+                        @media (max-width: 1199px) {
+                            left: 30px + ($i*140);
+                        }   
+                    }
                 }
 
                 .title{
-                    margin: 50px auto 50px !important;
-                    font-size: 2em !important;
-                    text-align: center !important;
-                    color: var(--primary-color);
-                    font-weight: bold !important;                            
-                }
-                
-                
-                .username1{
-                    height: 50px !important;
-                    line-height: 50px !important;
-                    border-radius: 10px !important;
-                    padding: 10px !important;
-                    margin-bottom: 20px !important;
-                    outline: none !important;
-                
-                    &::placeholder{
-                        font-size: 1.1em !important
+                    color: var(--secondary-color);
+                    font-size: 1.1em;
+                    text-decoration: none;
+
+                    @media (max-width:1199px) {
+                        font-size: 1em;
+
                     }
                 }
-                .password1{
-                    height: 50px !important;
-                    line-height: 50px !important;
-                    border-radius: 10px !important;
-                    padding: 10px !important;
-                    margin-bottom: 20px !important;
-                    outline: none !important;
-                
-                    &::placeholder{
-                        font-size: 1.1em !important
-                    }
-                }
-                .login1{
-                    border-radius: 10px !important;
-                    background-color: var(--primary-color) !important;
-                    color: var(--secondary-color) !important;
-                }
-                
-                .other_login{
-                    color: var(--primary-color) !important;
-                
-                }
-                
-                .other_login_icons{
-                    display: flex !important;
-                    justify-content: center !important;
-                    background-color: var(--primary-color) !important;
-                    padding: 5px !important;
-                    border-radius: 5px !important;   
-                    
-                    a{
-                        margin: 0 5px !important;
-                        position: static !important;
-                
-                        img{
-                            filter: grayscale(50%) !important;
-                            transition: 0.25s !important;
-                            
-                            &:hover{
-                                filter: grayscale(0) !important
-                            }
+            }
+        }
+        
+        .mini-menu{
+
+            .tablist{
+
+                .card-main{
+
+                    .card_header_main{
+
+                        .btn_main{
+
+
                         }
                     }
-                
-                }
-                .sign_up{
-                    background-color: var(--primary-color);
-                    color: var(--secondary-color);
-                }
-                
-                
-            }
-            
-            .nav-item{
-                
-                .nav-link{
-                    
-                    span{
-    
+
+                    .collapse_main{
+
+                        .card_body_main{
+
+                            a{
+
+                                img{
+                                    transition: 0.2s;
+
+                                    &:hover{
+                                        transform: scale(1.05);
+                                        border: 1px solid #000;
+                                        box-shadow: 5px 5px 20px #111;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
     .hamburger{
-            
+        border: 1px solid var(--primary-color) !important;
+        outline: none;
             
         span{
             width: 20px !important;
@@ -152,5 +116,11 @@ background-color: var(--secondary-color);
             margin-top: 4px !important;
             margin-bottom: 4px !important;
         }
+    }
+    .slide-enter-active, .slide-leave-active {
+    transition: opacity 0.5s;
+    }
+    .slide-enter, .slide-leave-active /* .slide-leave-active below version 2.1.8 */ {
+    opacity: 0;
     }
 }

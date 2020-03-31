@@ -1,16 +1,17 @@
 <template>
     <div class="main">
-        <b-col>
+        <h1>sale</h1>
+        <!-- <b-col>
             <nuxt-link to="/">
-                <img :src="require(`../../../assets/img/brands/${img.src}`)" alt="img">
+                <img :src="require(`../../../assets/img/brands/${item.name}`)" alt="img">
             </nuxt-link>
-        </b-col>
+        </b-col> -->
     </div>
 </template>
 
 <script>
 export default {
-props: ['img']
+props: ['item']
 }
 </script>
 
