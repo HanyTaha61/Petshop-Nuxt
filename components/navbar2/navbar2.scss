@@ -1,0 +1,156 @@
+
+.lower_navbar{
+background-color: var(--secondary-color);
+    .navbar{
+        
+        .navbar-nav{
+
+            .menu{
+                background-color: var(--secondary-color);
+                color: #fff;
+
+
+                @media (max-width: 991px) {
+                    width: 170px;
+                }
+
+                .caret_down{
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    margin-left: 2px;
+                    vertical-align: middle;
+                    border-top: 4px dashed;
+                    border-right: 4px solid transparent;
+                    border-left: 4px solid transparent;                        
+                }
+                .caret_up{
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    margin-left: 2px;
+                    vertical-align: middle;
+                    border-bottom: 4px dashed;
+                    border-right: 4px solid transparent;
+                    border-left: 4px solid transparent;                        
+                }
+
+                    
+            }
+
+            .login_body{
+                position: absolute;
+                top: 60px;
+                left: 5px;
+                z-index: 1;
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+                width: 275px !important;
+                border-radius: 10px !important;
+                padding-top: 55px !important;
+                background-color: var(--secondary-color);
+
+                @media (max-width: 991px) {
+                    top: 60px;
+                    left: 0;
+                }
+
+                .title{
+                    margin: 50px auto 50px !important;
+                    font-size: 2em !important;
+                    text-align: center !important;
+                    color: var(--primary-color);
+                    font-weight: bold !important;                            
+                }
+                
+                
+                .username1{
+                    height: 50px !important;
+                    line-height: 50px !important;
+                    border-radius: 10px !important;
+                    padding: 10px !important;
+                    margin-bottom: 20px !important;
+                    outline: none !important;
+                
+                    &::placeholder{
+                        font-size: 1.1em !important
+                    }
+                }
+                .password1{
+                    height: 50px !important;
+                    line-height: 50px !important;
+                    border-radius: 10px !important;
+                    padding: 10px !important;
+                    margin-bottom: 20px !important;
+                    outline: none !important;
+                
+                    &::placeholder{
+                        font-size: 1.1em !important
+                    }
+                }
+                .login1{
+                    border-radius: 10px !important;
+                    background-color: var(--primary-color) !important;
+                    color: var(--secondary-color) !important;
+                }
+                
+                .other_login{
+                    color: var(--primary-color) !important;
+                
+                }
+                
+                .other_login_icons{
+                    display: flex !important;
+                    justify-content: center !important;
+                    background-color: var(--primary-color) !important;
+                    padding: 5px !important;
+                    border-radius: 5px !important;   
+                    
+                    a{
+                        margin: 0 5px !important;
+                        position: static !important;
+                
+                        img{
+                            filter: grayscale(50%) !important;
+                            transition: 0.25s !important;
+                            
+                            &:hover{
+                                filter: grayscale(0) !important
+                            }
+                        }
+                    }
+                
+                }
+                .sign_up{
+                    background-color: var(--primary-color);
+                    color: var(--secondary-color);
+                }
+                
+                
+            }
+            
+            .nav-item{
+                
+                .nav-link{
+                    
+                    span{
+    
+                    }
+                }
+            }
+        }
+    }
+    .hamburger{
+            
+            
+        span{
+            width: 20px !important;
+            height: 2px !important;
+            content: '' !important;
+            display: block !important;
+            border: 1px solid var(--primary-color) !important;
+            margin-top: 4px !important;
+            margin-bottom: 4px !important;
+        }
+    }
+}
