@@ -17,6 +17,15 @@
                     width: 135px;
                 }
 
+                &:hover{
+                    background-color: var(--third-color);
+                    border-color: var(--third-color);
+                }
+                
+                &:hover .title{
+                    color: var(--primary-color) !important;
+                }
+
                 &:hover .img-cont_#{$i}{
                     display: flex;
                     // justify-content: flex-start;
