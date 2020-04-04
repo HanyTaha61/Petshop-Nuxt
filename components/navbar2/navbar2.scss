@@ -27,6 +27,7 @@
                 .img-cont_#{$i}{
                     list-style: none;
                     position: absolute;
+                    z-index: 3;
                     top: 35px;
                     left: 60px - ($i*140);
                     width: 950px;
@@ -84,6 +85,10 @@
                     .collapse_main{
 
                         .card_body_main{
+                            @media (max-width: 991px) {
+                                margin-top: -20px !important;
+                                margin-bottom: -20px !important;
+                            }
 
                             a{
 

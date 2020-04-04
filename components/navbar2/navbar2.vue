@@ -10,12 +10,13 @@
                         <ul class="list">
                             <li :class="`button_${i+1}`" v-for="(item,i) in menu_items" :key="i" class="btn btn-warning py-2 ml-1 d-none d-lg-inline-block">
                                 <nuxt-link to="#" class="title">{{item.title}}</nuxt-link>
-                                <b-row :key="`img-cont_${i+1}`" tag="ul" :class="`img-cont_${i+1}`" class="bg-light mt-2">
+                                <b-row :key="`img-cont_${i+1}`" tag="ul" :class="`img-cont_${i+1}`" class="bg-light mt-1 pr-1">
 
                                 <!-- menu components -->
-                                    <component :is="`comp${i+1}`" :images="images"/>
+                                    <client-only>
+                                        <component :is="`comp${i+1}`" :images="images" :cols='cols'/>
+                                    </client-only>
                                 <!-- menu components -->
-
                                 </b-row>
                             </li>
                             <!-- Show for small, medium screen devices -->
@@ -27,15 +28,11 @@
                                         </b-card-header>
                                         <b-collapse class="collapse_main" :id="`accordion-${i+1}`" accordion="my-accordion" role="tabpanel">
                                             <b-card-body class="card_body_main">
-                                                <nuxt-link to="./host">
-                                                    <b-img
-                                                    thumbnail
-                                                    rounded
-                                                    class="border"
-                                                    v-for="(img,i) in images" :key="i"
-                                                    :src="require(`../../assets/img/brands/${img.src}`)"
-                                                    alt="img"/>
-                                                </nuxt-link>
+                                <!-- mini-menu components -->
+                                                <client-only>
+                                                    <component :is="`comp${i+1}`" :images="images" :cols='cols'/>
+                                                </client-only>
+                                <!-- mini-menu components -->
                                             </b-card-body>
                                         </b-collapse>
                                     </b-card>
@@ -56,7 +53,7 @@ import comp1 from './components/shopByBrand'
 import comp2 from './components/shopByPet'
 import comp3 from './components/petServices'
 import comp4 from './components/Sale'
-import comp5 from './components/Help'
+import comp5 from './components/contact-us'
 import comp6 from './components/findAStore'
 
 export default {
@@ -89,7 +86,6 @@ export default {
 },    
     data(){
         return{
-            text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus eius repellat natus similique laudantium vero consectetur ea quos, optio fugit nam laboriosam vel eaque adipisci. Omnis illo officia fugit dolorum.`,
             opened: false,
             show_div: false,
             images:[
@@ -119,8 +115,51 @@ export default {
                 {title: 'Sale'},
                 {title: 'Help'},
                 {title: 'Find A Store'}
-            ]
-      // shopByBrand, shopByPet, petServices, sale ,help
+            ],
+            cols:[
+                {name: 'Dog',
+                links:{
+                    col1:['Food','Canned Food', 'Dry Food', 'Food Toppers', 'Shop All'],
+                    col2:['Treats','Biscuits & Bakery', 'Bones & Rawhide', 'Chewy Treats', 'Dental Treats', 'Jerky', 'Training Treats'],
+                    col3:['Supplies','Beds & Furniture', 'Bowls & Feeders', 'Cleaning Supplies', 'Clothing & Shoes', 'Collars, Harnesses & Leashes', 'Crates, Gates & Containments'],
+                    col4:['Others','Dental Care & Wellness', 'Flea & Tick', 'Grooming Supplies', 'Toys', 'Training & Behavior'],
+                }},
+                {name: 'Cat',
+                links:{
+                    col1:['Food & Treats','Wet Food', 'Treats', 'Dry Food', 'Catnip & Grass', 'Shop All'],
+                    col2:['Litter','Deodorizers & Filters', 'Litter', 'Litter Boxes', 'Mats & Liners', 'Waste Disposal'],
+                    col3:['Supplies','Beds & Furniture', 'Bowls & Feeders', 'Cleaning & Repellents', 'Collars, Harnesses & Leashes', 'Crates, Gates & Containments', 'Dental Care & Wellness'],
+                    col4:['Others','Flea & Tick', 'Grooming Supplies', 'Toys'],
+                }},
+                {name: 'Fish',
+                links:{
+                    col1:['Food & Care','Desease Treatment', 'Feeders', 'Food', 'Plant Care', 'Pond Care', 'Saltwater Aquarium Care'],
+                    col2:['Others','Water Care & Conditioning', 'Water Quality Testers'],
+                    col3:['Supplies','Decor Gravel & Substrate', 'Heating & Lighting', 'Filter & Pumps', 'Maintenance & Repair', 'Starter Kits', 'Tanks & Aquariums'],
+                    col4:['Live Fish','Goldfish Betta & More'],
+                }},
+                {name: 'Bird',
+                links:{
+                    col1:['Food & Treats', 'Pet Bird Food', 'Treats', 'Wild Bird Food'],
+                    col2:['Supplies', 'Bowls & Feeders', 'Cages & Stands', 'Cleaning & Odor Control', 'Grooming', 'Health Care & Vitamins', 'Litter & Nesting'],
+                    col3:['Others', 'Toys, Perches & Decor', 'Wild Bird Food & Supplies'],
+                    col4:['Live Birds','Conure, Parakeet & More'],
+                }},
+                {name: 'Reptile', 
+                links:{
+                    col1:['Habitats & Decor', 'Habitat Accessories', 'Habitat Decor', 'Starter Kits', 'Terrariums'],
+                    col2:['Supplies', 'Cleaning & Water Care', 'Environmental Control & Lighting', 'Feeders & Food Storage', 'Food', 'Substrate & Bedding', 'Vitamins & Supplements'],
+                    col3:['Live Reptiles', 'Snakes, Turtles & More'],
+                    col4:['Others','Others']
+                }},
+                {name: 'Small Pet', 
+                links:{
+                    col1:['Food, Treats & Hay', 'Hay', 'Food', 'Treats'],
+                    col2:['Supplies', 'Cages, Habitats & Hutches', 'Cleaning & Odor Removers', 'Harnesses & Travel Carriers', 'Health & Grooming', 'Litter & Bedding', 'Starter Kits'],
+                    col3:['Others', 'Toys & Habitat Accessories'],
+                    col4:['Live Small Pets','Hamsters, Guinea Pigs & More'],
+                }}
+            ]            
         }
     },
   mounted () {

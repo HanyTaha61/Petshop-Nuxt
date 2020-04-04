@@ -38,8 +38,8 @@
                         <transition-group name="slide">
                             <div key="login_body" class="login_body" v-if="opened">
                                 <p class="title">Log In</p>
-                                <input type="text" placeholder="username or email" class="w-100 username1">
-                                <input type="password" placeholder="password" class="w-100 password1">
+                                <input type="text" placeholder="username or email" class="w-100 username1" required>
+                                <input type="password" placeholder="password" class="w-100 password1" required>
                                 <input type="submit" class="btn w-75 d-block mx-auto login1" value="Log In">
                                 <p class="other_login text-center my-2 h6">or login with</p>
                                 <div class="other_login_icons w-75 mx-auto">
