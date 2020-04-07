@@ -113,7 +113,7 @@ export default {
                 {title: 'Shop By Pet'},
                 {title: 'Pet Services'},
                 {title: 'Sale'},
-                {title: 'Help'},
+                {title: 'Contact Us'},
                 {title: 'Find A Store'}
             ],
             cols:[

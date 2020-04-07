@@ -1,6 +1,6 @@
 <template>
     <div class="main w-100">
-        <b-card no-body>
+        <b-card no-body class="ml-4">
             <b-tabs card vertical>
                 <b-tab :title="tab.name" v-for="(tab,i) in cols" :key="i">
                     <b-card-text class="content">
@@ -46,11 +46,11 @@ props:['cols']
             a{
                 display: block !important;
                 text-align: left;
-                margin: 10px auto;
+                padding: 5px;
+                margin: 5px auto;
                 color: var(--secondary-color);
                 text-decoration: none;
                 transition: background-color 0.4s;
-                padding: 5px;
 
                 @media (max-width: 991px) {
                     font-size: 0.9em;

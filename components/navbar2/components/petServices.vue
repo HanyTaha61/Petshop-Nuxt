@@ -1,11 +1,13 @@
 <template>
     <div class="main w-100">
-        <b-row>
-            <b-col class="column" v-for="(service, i) in petServices" :key="i">
-                <h6 class="h3_font">{{service.name}}</h6>
-                <a class="link text-left" href="" v-for="(link, ii) in service.links" :key="ii">{{link}}</a>
-            </b-col>
-        </b-row>
+        <b-card no-body class='my-3'>
+            <b-row>
+                <b-col class="column px-4" v-for="(service, i) in petServices" :key="i">
+                    <h6 class="h3_font">{{service.name}}</h6>
+                    <a class="link text-left" href="" v-for="(link, ii) in service.links" :key="ii">{{link}}</a>
+                </b-col>
+            </b-row>
+        </b-card>
     </div>
 </template>
 
@@ -46,8 +48,8 @@ export default {
             display: block !important;
             margin-bottom: 16px;
             color: var(--secondary-color);
-            padding: 5px auto;
-            padding: 10px 5px;
+            padding: 5px;
+            margin: 5px auto;
             transition: background-color 0.4s;
 
             &:hover{
