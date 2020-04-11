@@ -55,6 +55,7 @@ export default {
             &:hover{
                 background-color: #ccc;
                 border-radius: 3px;
+                color: var(--third-color);
             }
         }
     }

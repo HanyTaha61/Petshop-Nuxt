@@ -2,6 +2,7 @@
 <div class="main">
 	<navBar/>
 	<navBar2/>
+  <carousel/>
 	<nuxt />
 </div>
 </template>
@@ -10,10 +11,11 @@
 import navBar from '../components/navbar/navbar';
 import navBar2 from '../components/navbar2/navbar2';
 import ClickOutside from 'vue-click-outside'
+import carousel from '../components/carousel/carousel';
 
 
 export default {
-	components:{navBar, navBar2},
+	components:{navBar, navBar2, carousel},
 	head(){
 		return{
 			

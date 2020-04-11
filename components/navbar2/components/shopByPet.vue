@@ -46,8 +46,8 @@ props:['cols']
             a{
                 display: block !important;
                 text-align: left;
-                padding: 5px;
-                margin: 5px auto;
+                padding: 3px;
+                margin: 3px auto;
                 color: var(--secondary-color);
                 text-decoration: none;
                 transition: background-color 0.4s;
@@ -59,6 +59,7 @@ props:['cols']
                 &:hover{
                     background-color: #ccc;
                     border-radius: 3px;
+                    color: var(--third-color);
                 }
             }
             a:first-child{
@@ -83,6 +84,7 @@ props:['cols']
                     background-repeat: no-repeat;
                     background-size: contain;
                     position: absolute;
+                    z-index: 17;
                     bottom: -32px;
                     right: 50px;
                     height: 200px;
