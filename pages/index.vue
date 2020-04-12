@@ -3,6 +3,10 @@
 	<navBar/>
 	<navBar2/>
   <carousel/>
+  <covid19/>
+  <whats-new/>
+  <brands/>
+
 	<nuxt />
 </div>
 </template>
@@ -11,11 +15,14 @@
 import navBar from '../components/navbar/navbar';
 import navBar2 from '../components/navbar2/navbar2';
 import ClickOutside from 'vue-click-outside'
-import carousel from '../components/carousel/carousel';
+import carousel from '../components/carousel';
+import covid19 from '../components/covid19';
+import whatsNew from '../components/whats_new';
+import brands from '../pages/brands';
 
 
 export default {
-	components:{navBar, navBar2, carousel},
+	components:{navBar, navBar2, carousel, covid19, whatsNew, brands},
 	head(){
 		return{
 			

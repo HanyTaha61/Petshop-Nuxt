@@ -13,7 +13,7 @@
             <b-carousel-slide
                 caption=""
                 text=""
-                :img-src="require(`../../assets/img/carousel/slide${i+1}.jpeg`)"
+                :img-src="require(`../assets/img/carousel/slide${i+1}.jpeg`)"
             ></b-carousel-slide>
         </nuxt-link>
 
